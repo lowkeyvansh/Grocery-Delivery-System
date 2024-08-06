@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Place Order</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Place Order</h1>
+        <nav>
+            <a href="/">Home</a>
+        </nav>
+    </header>
+    <main>
+        <form action="{{ url_for('order') }}" method="POST">
+            {{ form.hidden_tag() }}
+            <label for="product_id">Product ID:</label>
+            {{ form.product_id }}
+            <label for="quantity">Quantity:</label>
+            {{ form.quantity }}
+            {{ form.submit }}
+        </form>
+    </main>
+</body>
+</html>
