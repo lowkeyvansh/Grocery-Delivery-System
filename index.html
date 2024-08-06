@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grocery Delivery System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Grocery Delivery System</h1>
+        <nav>
+            <a href="/">Home</a>
+            <a href="{{ url_for('add_product') }}">Add Product</a>
+            <a href="{{ url_for('order') }}">Place Order</a>
+        </nav>
+    </header>
+    <main>
+        <h2>Available Products</h2>
+        <div class="product-list">
+            {% for product in products %}
+                <div class="product">
+                    <h3>{{ product.name }}</h3>
+                    <p>Price: ${{ product.price }}</p>
+                    <p>Quantity: {{ product.quantity }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    </main>
+</body>
+</html>
